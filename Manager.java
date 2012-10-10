@@ -73,5 +73,25 @@ public class Manager extends Employe {
 		super(nom, prenom, sexe, anneeNaissance, numero, entreprise, chef);
 		this.employes = new LinkedList<Employe>();
 	}
+	public Manager(String nom, String prenom, boolean sexe, int anneeNaissance,
+			int numero, Entreprise entreprise) {
+		super(nom, prenom, sexe, anneeNaissance, numero, entreprise);
+		this.employes = new LinkedList<Employe>();
+	}
+	
+	public int numEmploye(){
+		int n = 0;
+		
+		for (Employe e : this.employes){
+			if(e instanceof Manager){
+				n++;
+				n += ((Manager) e).numEmploye();
+			} else {
+				n++;
+			}
+		}
+		
+		return n;
+	}
 
 }
