@@ -15,9 +15,9 @@ public class Manager extends Employe {
 	private LinkedList<Employe> employes;
 	
 	/**
-	 * suprieur hirarchique
+	 * supå·–ieur hiå·–archique
 	 * 
-	 * pour le patron de l'entreprise, le suprieur vaudra null
+	 * pour le patron de l'entreprise, le supå·–ieur vaudra null
 	 */
 	private Manager manager;
 	
@@ -44,15 +44,15 @@ public class Manager extends Employe {
 	}
 
 	/**
-	 * ajoute un employ ˆ la liste des gens sous les ordres du 
+	 * ajoute un employï¿½ï¿½la liste des gens sous les ordres du 
 	 * manager
-	 * @param nouveau l'employ ˆ ajouter
+	 * @param nouveau l'employï¿½ï¿½ajouter
 	 */
 	public void ajouteEmploye(Employe nouveau) {
-		// ajout ˆ la liste des nouveaux
+		// ajout ï¿½la liste des nouveaux
 		this.employes.add(nouveau);
 		
-		// on vrifie si nouveau est lui-mme un Manager
+		// on vå·–ifie si nouveau est lui-mæ—e un Manager
 		if (nouveau instanceof Manager) {
 			// sous-classement
 			Manager m1 = (Manager) nouveau;
@@ -69,8 +69,8 @@ public class Manager extends Employe {
 	 * @param entreprise
 	 */
 	public Manager(String nom, String prenom, boolean sexe, int anneeNaissance,
-			int numero, Entreprise entreprise) {
-		super(nom, prenom, sexe, anneeNaissance, numero, entreprise);
+			int numero, Entreprise entreprise, Employe chef) {
+		super(nom, prenom, sexe, anneeNaissance, numero, entreprise, chef);
 		this.employes = new LinkedList<Employe>();
 	}
 
