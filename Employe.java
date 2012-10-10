@@ -94,16 +94,36 @@ public class Employe extends Personne {
 
 	public static void main(String[] args) {
 		Entreprise comac = new Entreprise("Comac");
-		Manager e0 = new Manager("Mao", "Zedong", true, 1893, 1976, comac, null);
-		Employe e1 = new Employe("Dassault","Marcel",true,1910,354,comac,e0);
-		Employe e2 = new Employe("Sarkozy","Nicolas",true,1940,335, comac, e0);
-		
+		Manager e0 = new Manager("Mao", "Zedong", true, 1893, 1976, comac);
+		Manager e1 = new Manager("Dassault","Marcel",true,1910,354,comac, e0);
+		Employe e2 = new Employe("Sarkozy","Nicolas",true,1940,335, comac, e1);
+		Manager e3 = new Manager("Balack", "Obama", true, 1955, 1776, comac, e1);
+		Employe e4 = new Employe("Yang", "Mi", false, 1986, 27, comac, e3);
+		Employe e5 = new Employe("Liu", "Yifei", false, 1987, 28, comac, e3);
+
+		e0.ajouteEmploye(e1);		
+		e1.ajouteEmploye(e2);
+		e1.ajouteEmploye(e3);
+		e3.ajouteEmploye(e4);
+		e3.ajouteEmploye(e5);
+
+		System.out.println(e0);
 		System.out.println(e1);
 		System.out.println(e2);
+		System.out.println(e3);
+		System.out.println(e4);
+		System.out.println(e5);
 		
+		e0.dirChef();
+		System.out.println("Mao a " + e0.numEmploye() + " employées");
+
 		e1.dirChef();
 		e2.dirChef();
-		e0.dirChef();
+		e3.dirChef();
+		e4.dirChef();
+		e5.dirChef();
+		
+		
 	}
 
 	/**
@@ -122,7 +142,7 @@ public class Employe extends Personne {
 	
 	public void dirChef(){
 		if (this.chef == null){
-			System.out.println(this.getNom() + " est le patron");
+			System.out.println( this.getNom() + " est le patron");
 		} else {
 			System.out.println( this.getNom() + " a pour chef " + this.chef.getNom());
 		}
