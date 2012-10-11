@@ -28,6 +28,12 @@ public class Personne {
 	 */
 	private int anneeNaissance;
 	
+	/** 
+	 * retourne le prénom suivi du nom
+	 */
+	public String getNomComplet() {
+		return this.prenom+" "+this.nom;
+	}
 	
 	/**
 	 * @return the nom

@@ -61,6 +61,37 @@ public class Manager extends Employe {
 	}
 	
 	/**
+	 * donne le nombre d'employés sous les ordres d'un manager
+	 */
+	public int nombreEmployes() {
+		int s = this.employes.size();
+		for (Employe e : this.employes) {
+			if (e instanceof Manager) {
+				Manager m = (Manager) e;
+				s += m.nombreEmployes();
+			}
+		}
+		return s;
+	}
+	
+	/**
+	 * afficher la hierarchie d'un manager sur le modele
+	 * A a pour chef B
+	 * B a pour chef C
+	 * C a pour chef D
+	 * D est le patron
+	 */
+	void afficheHierarchie() {
+		if (this.manager == null) {
+			System.out.println(this.getNomComplet()+" est le patron");
+		}
+		else {
+			System.out.println(this.manager.getNomComplet()+" est le chef de "+this.getNomComplet());
+			this.manager.afficheHierarchie();
+		}
+	}
+	
+	/**
 	 * @param nom
 	 * @param prenom
 	 * @param sexe
