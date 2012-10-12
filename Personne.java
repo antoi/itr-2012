@@ -4,9 +4,9 @@
 
 /**
  * @author moreau
- * une classe Personne qui va dŽfinir les informations relatives ˆ une Personne
+ * une classe Personne qui va då·‰inir les informations relatives ï¿½une Personne
  */
-public class Personne {
+public class Personne implements Contactable {
 	
 	/** 
 	 * Le nom de la personne
@@ -14,7 +14,7 @@ public class Personne {
 	private String nom;
 	
 	/**
-	 *  Le prŽnom de la personne
+	 *  Le prå·’om de la personne
 	 */
 	private String prenom;
 	
@@ -24,12 +24,17 @@ public class Personne {
 	private boolean sexe;
 	
 	/**
-	 *  L'annŽe de naissance de la personne
+	 *  L'annå·ˆ de naissance de la personne
 	 */
 	private int anneeNaissance;
 	
+	/*
+	 * le contactInfo 
+	 */
+	private Contact contact;
+	
 	/** 
-	 * retourne le prŽnom suivi du nom
+	 * retourne le prå·’om suivi du nom
 	 */
 	public String getNomComplet() {
 		return this.prenom+" "+this.nom;
@@ -127,6 +132,29 @@ public class Personne {
 		Personne p = new Personne("Moreau","Guillaume",true,1973);
 		
 		System.out.println(p);
+		
+	}
+
+	@Override
+	public Contact getContactInfo() throws NoContactInfoException {
+		// TODO Auto-generated method stub
+		try {
+			if (this.contact == null){
+				throw new NoContactInfoException("Pas de contact info");
+			}
+			return contact;	
+		} 
+		catch (NoContactInfoException contactInfoException){
+			System.out.println("Pas de contact info");
+
+			return null;
+		}
+	}
+
+	@Override
+	public void setContactInfo(Contact contact) {
+		// TODO Auto-generated method stub
+		this.contact = contact;
 		
 	}
 

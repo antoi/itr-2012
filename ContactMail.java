@@ -26,6 +26,14 @@ public class ContactMail extends Contact {
 		string = "l'address d'email est " + this.getEmail();
 		return string;
 	}
+
+	/**
+	 * @param email
+	 */
+	public ContactMail(String email) {
+		super();
+		this.email = email;
+	}
 	
 	
 	

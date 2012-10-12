@@ -33,5 +33,13 @@ public class ContactPoste extends Contact {
 		string = "l'address postale est " + this.getPoste();
 		return string;
 	}
+
+	/**
+	 * @param poste
+	 */
+	public ContactPoste(String poste) {
+		super();
+		this.poste = poste;
+	}
 	
 }

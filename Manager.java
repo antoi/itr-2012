@@ -61,7 +61,7 @@ public class Manager extends Employe {
 	}
 	
 	/**
-	 * donne le nombre d'employŽs sous les ordres d'un manager
+	 * donne le nombre d'employï¿½s sous les ordres d'un manager
 	 */
 	public int nombreEmployes() {
 		int s = this.employes.size();
@@ -72,6 +72,36 @@ public class Manager extends Employe {
 			}
 		}
 		return s;
+	}
+	
+	
+	public int nombreFemme(){
+		int f = 0;
+		
+		for (Employe e : this.employes){
+			
+			if(!e.isSexe()){
+				f++;
+			}
+			
+			if( e instanceof Manager){
+				f += ((Manager) e).nombreFemme();
+			}
+			
+		}
+		
+		return f;
+	}
+	
+	public float pourcentageFemme() throws Exception{
+		float nf = this.nombreFemme();
+		float ne = this.nombreEmployes();
+		if (ne == 0){
+			throw new Exception();
+		} 
+		float p = ((float)nf / (float)ne) * 100;
+		
+		return p;
 	}
 	
 	/**

@@ -33,6 +33,17 @@ public class EntrepriseTest {
 		System.out.println("---------");
 
 		dd.afficheHierarchie();
+		
+		System.out.println("---------");
+		
+		System.out.println("Le nombre des employees sous " + jma.getNomComplet() + " est " + jma.nombreEmployes());
+		System.out.println("Le nombre des femmes sous " + jma.getNomComplet() + " est " + jma.nombreFemme());
+		try {
+			System.out.println("le pourcentage de femme sous " + jma.getNomComplet() + " est " + jma.pourcentageFemme());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

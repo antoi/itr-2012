@@ -17,6 +17,14 @@ public class ContactTelephonique extends Contact {
 	}
 
 	/**
+	 * @param numTelephone
+	 */
+	public ContactTelephonique(int numTelephone) {
+		super();
+		this.numTelephone = numTelephone;
+	}
+
+	/**
 	 * @param numTelephone the numTelephone to set
 	 */
 	public void setNumTelephone(int numTelephone) {

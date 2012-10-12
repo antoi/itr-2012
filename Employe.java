@@ -6,7 +6,7 @@
  * @author moreau
  *
  */
-public class Employe extends Personne {
+public class Employe extends Personne implements Contactable {
 
 	/**
 	 * num巖o d'employ�
@@ -22,7 +22,7 @@ public class Employe extends Personne {
 	 * le chef 
 	 */
 	private Employe chef;
-	
+
 	/**
 	 * @return the entreprise
 	 */
@@ -92,7 +92,7 @@ public class Employe extends Personne {
 		", num巖o "+this.numero;
 	}
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		Entreprise comac = new Entreprise("Comac");
 		Manager e0 = new Manager("Mao", "Zedong", true, 1893, 1976, comac);
 		Manager e1 = new Manager("Dassault","Marcel",true,1910,354,comac, e0);
@@ -125,7 +125,7 @@ public class Employe extends Personne {
 		
 		
 	}
-
+*/
 	/**
 	 * @return the chef
 	 */
@@ -146,6 +146,18 @@ public class Employe extends Personne {
 		} else {
 			System.out.println( this.getNom() + " a pour chef " + this.chef.getNom());
 		}
+	}
+
+	@Override
+	public Contact getContactInfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setContactInfo(Contact contact) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

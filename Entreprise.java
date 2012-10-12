@@ -6,11 +6,16 @@
  * @author moreau
  *
  */
-public class Entreprise {
+public class Entreprise implements Contactable {
 	/**
 	 * nom de l'entreprise
 	 */
 	private String nom;
+	
+	/*
+	 * le contactInfo
+	 */
+	private Contact contact;
 
 	/**
 	 * @return the nom
@@ -31,5 +36,20 @@ public class Entreprise {
 	 */
 	public Entreprise(String nom) {
 		this.nom = nom;
+	}
+
+	public Contact getContactInfo() throws NoContactInfoException {
+		// TODO Auto-generated method stub
+		if (this.contact == null){
+			throw new NoContactInfoException("Pas de contact info");
+		}
+		return this.contact;
+		
+	}
+
+	@Override
+	public void setContactInfo(Contact contact) {
+		// TODO Auto-generated method stub
+		this.contact = contact;
 	}
 }
